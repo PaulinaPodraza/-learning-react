@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Hero.scss';
-import img from '../../image/space.jpg';
 
 
 class Hero extends React.Component {
@@ -8,7 +7,7 @@ class Hero extends React.Component {
     return (
       <header className={styles.component}>
         <h2 className={styles.title}>Things to do</h2>
-        <image className={styles.image} src={img}></image>
+        <img className={styles.image} src='http://uploads.kodilla.com/bootcamp/fer/11.react/space.png'></img>
       </header>
     )
   }
