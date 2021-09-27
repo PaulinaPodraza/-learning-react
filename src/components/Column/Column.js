@@ -41,9 +41,6 @@ class Column extends React.Component {
           {this.props.title}
         </h3>
       <div className={styles.creator}>
-        <Card text={settings.cardCreatorText} action={title => this.addCard(title)}/>
-      </div>
-      <div className={styles.creator}>
           <Creator text={settings.cardCreatorText} action={title => this.addCard(title)}/>
         </div>
                 <div className={styles.cards}>
