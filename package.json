@@ -9,11 +9,6 @@
     "lint": "eslint src/",
     "server": "http-server dist"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "src/**/*.js": "eslint"
   },
