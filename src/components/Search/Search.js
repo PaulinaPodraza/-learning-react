@@ -8,7 +8,9 @@ import { settings } from '../../data/dataStore';
 
 class Search extends React.Component {
   static propTypes = {
-    history: PropTypes.node,
+    history: PropTypes.object,
+    changeSearchString: PropTypes.func,
+    searchString: PropTypes.string,
   }
 
   state = {
@@ -24,9 +26,15 @@ class Search extends React.Component {
   }
 
   handleOK() {
+    this.props.changeSearchString(this.state.value);
     this.props.history.push(`/search/${this.state.value}`);
   }
 
+  componentDidUpdate(prevProps) {
+    if (this.props.searchString != prevProps.searchString) {
+      this.setState({ value: this.props.searchString });
+    }
+  }
   render() {
     const {value} = this.state;
     const {icon} = settings.search;
@@ -38,7 +46,7 @@ class Search extends React.Component {
           onChange={event => this.handleChange(event)}
         />
         <div className={styles.buttons}>
-          <Button onClick={this.handleOK}><Icon name={icon} /></Button>
+          <Button onClick={() => this.handleOK()}><Icon name={icon} /></Button>
         </div>
       </div>
     );
